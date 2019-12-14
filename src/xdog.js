@@ -70,7 +70,7 @@ export function XDoGFilter(pixels, options, shape) {
   return new Promise((resolve, reject) => {
     const original = Array3D.new([...shape, 1], pixels)
     const rescaled = math.divide(original, s(255))
-
+    console.log('orginal', original);
     const [kernelOne, kernelTwo] = [guassianKernel(sigmaOne), guassianKernel(sigmaTwo)]
     const [imgA, imgB] = [applyConvolution(math, rescaled, kernelOne), applyConvolution(math, rescaled, kernelTwo)]
 
